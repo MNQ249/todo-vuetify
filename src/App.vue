@@ -1,20 +1,21 @@
 <template>
-  <v-app>
-    <v-content>
+  <v-app color="grey lighten-4">
+    <Navbar />
+    <v-main>
       <router-view>
       </router-view>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script>
-
+import Navbar from '@/components/Navbar'
 
 export default {
   name: 'App',
 
   components: {
-    
+    Navbar,
   },
 
   data: () => ({
