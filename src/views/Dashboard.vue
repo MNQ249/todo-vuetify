@@ -6,15 +6,6 @@
 
     <v-card flat class="pa-3" v-for="project in projects" :key="project.title">
       <v-layout row wrap :class="`pa-3 project ${project.status}`">
-        <!-- <v-flex xs12 md6>
-          <v-card-title>Project Title</v-card-title>
-        <v-card-text>
-          <v-row align="center" class="mx-0">
-            Yhoo
-          
-          </v-row>
-        </v-card-text>
-        </v-flex> -->
       <v-flex xs12 md6>
         <div class="captiion grey--text">Project Title</div>
         <div>{{ project.title }}</div>
@@ -31,8 +22,9 @@
       </v-flex>
 
       <v-flex xs6 sm4 md2>
-        <div class="captiion grey--text">Status</div>
-        <div>{{ project.status}}</div>
+        <div>
+          <v-chip large :class="project.status+ ' white--text caption ma-2'">{{ project.status }}</v-chip>
+        </div>
       </v-flex>
 
       </v-layout>
@@ -42,7 +34,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 
 
 export default {
@@ -71,4 +63,15 @@ export default {
  .project.overdue{
    border-left: 4px solid tomato;
  }
+
+.v-chip.complete{
+  background: #3cd1c2 !important;
+}
+.v-chip.ongoing{
+  background: #ffaa2c !important;
+}
+.v-chip.overdue{
+  background: #f83e70 !important;
+}
+
 </style>
