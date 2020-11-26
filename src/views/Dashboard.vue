@@ -3,17 +3,29 @@
     <h1 class="subtitle grey--text">Dashboard</h1>
 
     <v-container  class="my-5" >
-
-      <v-layout flat class="mb-3">
-        <v-btn small text color="grey" @click="sortBy('title')">
+      
+      <v-layout row class="mb-3">
+       <v-tooltip top>
+         <template v-slot:activator="{ on, attrs }">
+          <v-btn small text color="#82B1FF" @click="sortBy('title')" v-bind="attrs"
+            v-on="on">
           <v-icon left small>mdi-folder</v-icon>
           <span class="caption text-lowercase">By Project Name </span>
         </v-btn>
+        </template>
+        <span>Sort project by project name</span>
+       </v-tooltip>
 
-        <v-btn small text color="grey" @click="sortBy('person')">
+       <v-tooltip top>
+         <template v-slot:activator="{ on, attrs }">
+          <v-btn small text color="#82B1FF" @click="sortBy('person')" v-bind="attrs"
+            v-on="on">
           <v-icon left small>mdi-account </v-icon>
           <span class="caption text-lowercase">By Person</span>
-        </v-btn>
+           </v-btn>
+          </template>
+          <span>Sort project by Person</span>
+       </v-tooltip>
 
       </v-layout>
 
@@ -38,7 +50,7 @@
 
       <v-flex xs6 sm4 md2>
         <div>
-          <v-chip large :class="project.status+ ' white--text caption ma-2'">{{ project.status }}</v-chip>
+          <v-chip small :class="project.status+ ' white--text caption ma-2'">{{ project.status }}</v-chip>
         </div>
       </v-flex>
 
