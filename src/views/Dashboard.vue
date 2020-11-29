@@ -7,7 +7,7 @@
       <v-layout row class="mb-3">
        <v-tooltip top>
          <template v-slot:activator="{ on, attrs }">
-          <v-btn small text color="#82B1FF" @click="sortBy('title')" v-bind="attrs"
+          <v-btn small text color="#1976D2" @click="sortBy('title')" v-bind="attrs"
             v-on="on">
           <v-icon left small>mdi-folder</v-icon>
           <span class="caption text-lowercase">By Project Name </span>
@@ -18,7 +18,7 @@
 
        <v-tooltip top>
          <template v-slot:activator="{ on, attrs }">
-          <v-btn small text color="#82B1FF" @click="sortBy('person')" v-bind="attrs"
+          <v-btn small text color="#1976D2" @click="sortBy('person')" v-bind="attrs"
             v-on="on">
           <v-icon left small>mdi-account </v-icon>
           <span class="caption text-lowercase">By Person</span>
@@ -31,7 +31,7 @@
 
       
 
-    <v-card   flat class="pa-3 lighten-3" v-for="project in projects" :key="project.title">
+    <v-card flat class="pa-3 lighten-3" v-for="project in projects" :key="project.title">
       <v-layout row wrap :class="`pa-3 project ${project.status}`">
       <v-flex xs12 md6>
         <div class="captiion grey--text">Project Title</div>
@@ -93,7 +93,7 @@ methods:{
  }
 
  .project.overdue{
-   border-left: 4px solid tomato;
+   border-left: 4px solid #ff6347;
  }
 
 .v-chip.complete{
