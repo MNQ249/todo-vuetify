@@ -17,7 +17,7 @@
       <v-switch v-model="$vuetify.theme.dark" label="Dark Mode"></v-switch>
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" class="primary">
+    <v-navigation-drawer floating app v-model="drawer" class="light-blue lighten-1">
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
