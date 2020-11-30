@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import Projects  from '../views/Projects.vue'
 import Team from '../views/Team.vue'
+import Vision from '../views/vision.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,13 @@ const routes = [
     path: '/team',
     name: 'team',
     component:Team
-  }
+  },
+  {
+    path: '/vision',
+    name: 'vision',
+    component:Vision
+  },
+
 ]
 
 const router = new VueRouter({

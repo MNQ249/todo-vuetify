@@ -17,11 +17,11 @@
       <v-switch v-model="$vuetify.theme.dark" label="Dark Mode"></v-switch>
     </v-app-bar>
 
-    <v-navigation-drawer floating app v-model="drawer" class="light-blue lighten-1">
+    <v-navigation-drawer floating app v-model="drawer" class="indigo ">
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
-            <img src="../assets/circle-cropped.png" alt="my-image">
+            <img src="circle-cropped.png" alt="my-image">
           </v-avatar>
           <p class ="white--text subheading-2 text-center">Mesfer</p>
         </v-flex>
@@ -58,6 +58,7 @@ export default {
         { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
         { icon: "mdi-folder", text: "My Project", route: "/projects" },
         { icon: "mdi-account-group", text: "Team", route: "/team" },
+        { icon: " mdi-bullseye-arrow", text: "Vision", route: "/vision" },
       ],
     };
   },
