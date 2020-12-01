@@ -5,7 +5,7 @@
         class="grey--text"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <v-toolbar-title class="text-uppercase grey--text">
+      <v-toolbar-title class="text-uppercase indigo--text">
         <span class="font-weight-light">Todo</span>
         <span>Mesfer</span>
       </v-toolbar-title>
@@ -21,13 +21,13 @@
         </v-btn>
         </template>
         <v-list>
-          <v-list-item v-for="link in links" :key="link.text" router :to="link.route" >
+          <v-list-item v-for="link in links" :key="link.text" router :to="link.route" class="indigo--text">
             <v-list-item-title>{{ link.text }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
-      <v-btn text color="grey">
+      <v-btn text color="indigo">
         <span>Sign Out</span>
         <v-icon>mdi-logout</v-icon>
       </v-btn>
@@ -42,9 +42,13 @@
           </v-avatar>
           <p class ="white--text subheading-2 text-center">Mesfer</p>
         </v-flex>
-      </v-layout>
 
+      <!-- Popups(dialog)-->
+     <v-flex class="mt-4 mb-3">
+       <Popup />
+     </v-flex>
 
+        </v-layout>
       <v-list>
         <v-list-item
           v-for="link in links"
@@ -67,7 +71,11 @@
 </template>
 
 <script>
+
+import Popup from './Popup.vue';
+
 export default {
+  components: { Popup },
   data() {
     return {
       drawer: false,
