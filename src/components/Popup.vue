@@ -7,12 +7,12 @@
         >
       </template>
       <v-card>
-        <v-card-title class="headline light-blue accent-4">
+        <v-card-title class="headline white--text red lighten-1">
           Create a New Project</v-card-title
         >
       </v-card>
-      <v-card-text>
-        <v-form class="px-3">
+      <v-card-text class="indigo darken-1">
+        <v-form class="px-3 ">
           <v-text-field
             label="Title"
             v-model="title"
@@ -23,6 +23,29 @@
             v-model="content"
             prepend-icon="mdi-pencil "
           ></v-textarea>
+          <!--datePicker-->
+          <v-menu v-model="due"
+            :close-on-content-click="false"
+            transition="scale-transition"
+            offset-y
+            max-width="290px"
+            min-width="290px">
+              <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-model="computedDateFormatted"
+                label="Due Date"
+                persistent-hint
+                prepend-icon="mdi-calendar"
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+             <v-date-picker
+              v-model="date"
+              no-title
+              @input="due = false"
+            ></v-date-picker>
+          </v-menu>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
@@ -40,17 +63,41 @@
 
 <script>
 export default {
-  data() {
+  data(vm) {
     return {
       dialog: true,
       title: "",
       content: "",
+       date: new Date().toISOString().substr(0, 10),
+    dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
     };
+  },
+  computed: {
+    computedDateFormatted () {
+      return this.formatDate(this.date)
+    },
+  },
+  watch: {
+    date () {
+      this.dateFormatted = this.formatDate(this.date)
+    },
   },
   methods:{
       submit(){
           console.log(this.title, this.content)
-      }
+      },
+        formatDate (date) {
+      if (!date) return null
+
+      const [year, month, day] = date.split('-')
+      return `${month}/${day}/${year}`
+    },
+    parseDate (date) {
+      if (!date) return null
+
+      const [month, day, year] = date.split('/')
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+    },
   }
 };
 </script>
