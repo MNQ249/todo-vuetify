@@ -19,7 +19,7 @@
                     <div class="pink--text">{{ person.role }}</div>
                 </v-card-text>
                 <v-card-action>
-                    <v-btn text small left color="blue-grey lighten-3">
+                    <v-btn text small left color="green darken-1">
                         <v-icon small left>mdi-message</v-icon>
                         <span>message</span>
                     </v-btn>

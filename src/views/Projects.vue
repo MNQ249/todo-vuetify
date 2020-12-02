@@ -4,12 +4,12 @@
 
     <v-container  class="my-5">
    <v-expansion-panels>
-      <v-expansion-panel v-for="project in myProjects" :key="project.title" class="grey lighten-1">
-        <v-expansion-panel-header class="font-weight-bold">  
+      <v-expansion-panel v-for="project in myProjects" :key="project.title" class="light-green    lighten-1">
+        <v-expansion-panel-header class="font-weight-bold white--text">  
           {{ project.title }}
           <v-expansion-panel-content>
            <v-card>
-             <v-card-text class="px-4 grey--text">
+             <v-card-text class="px-4 light-green--text">
                <div class="font-weight-bold">due by {{ project.due }}</div>
                <div>{{ project.content}}</div>
              </v-card-text>
