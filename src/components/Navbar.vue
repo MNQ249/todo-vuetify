@@ -2,7 +2,7 @@
   <nav>
     <v-snackbar v-model="sanckbar" :timeout="4000" top color="success">
       <span>Awesome! You add a new porject.</span>
-      <v-btn text color="White" @click="sanckbar = false">Close</v-btn>
+      <v-btn text color="White" @click="sanckbar">Close</v-btn>
     </v-snackbar>
     <v-app-bar flat app>
       <v-app-bar-nav-icon
@@ -49,7 +49,7 @@
 
       <!-- Popups(dialog)-->
      <v-flex class="mt-4 mb-3">
-       <Popup @projectAdded="sanckbar= true "/>
+       <Popup @projectAdded="sanckbar= true "/> <!-- functions called listeners to be called--> 
      </v-flex>
         </v-layout>
         

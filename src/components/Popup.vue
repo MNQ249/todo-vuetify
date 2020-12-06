@@ -112,7 +112,7 @@ export default {
             db.collection('projects').add(project).then(()=>{
               this.dialog=false;
               this.loading=false;
-              this.$emit('projectAdded');
+              this.$emit('projectAdded'); // Emit's job is to trigger named event(s) which in turn cause functions called listeners to
               // console.log(' grate ...add to db');
             }) // syn and take time to do it 
         }
