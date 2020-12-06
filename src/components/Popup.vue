@@ -8,11 +8,11 @@
         >
       </template>
       <v-card>
-        <v-card-title class="headline white--text red lighten-1">
+        <v-card-title class="headline orange lighten-1 white--text">
           Create a New Project</v-card-title
         >
       </v-card>
-      <v-card-text class="indigo darken-1">
+      <v-card-text class="">
         <v-form class="px-3 " ref="form">
           <v-text-field
             label="Title"
