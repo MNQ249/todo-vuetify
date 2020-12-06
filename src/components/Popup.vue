@@ -8,11 +8,11 @@
         >
       </template>
       <v-card>
-        <v-card-title class="headline orange lighten-1 white--text">
+        <v-card-title class="headline light-blue white--text">
           Create a New Project</v-card-title
         >
       </v-card>
-      <v-card-text class="">
+      <v-card-text class="grey lighten-1">
         <v-form class="px-3 " ref="form">
           <v-text-field
             label="Title"
@@ -110,9 +110,10 @@ export default {
               status: 'ongoing'
             }
             db.collection('projects').add(project).then(()=>{
-              this.loading=false;
               this.dialog=false;
-              console.log(' grate ...add to db');
+              this.loading=false;
+              this.$emit('projectAdded');
+              // console.log(' grate ...add to db');
             }) // syn and take time to do it 
         }
       

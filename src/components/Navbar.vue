@@ -1,5 +1,9 @@
 <template>
   <nav>
+    <v-snackbar v-model="sanckbar" :timeout="4000" top color="success">
+      <span>Awesome! You add a new porject.</span>
+      <v-btn text color="White" @click="sanckbar = false">Close</v-btn>
+    </v-snackbar>
     <v-app-bar flat app>
       <v-app-bar-nav-icon
         class="grey--text"
@@ -45,7 +49,7 @@
 
       <!-- Popups(dialog)-->
      <v-flex class="mt-4 mb-3">
-       <Popup />
+       <Popup @projectAdded="sanckbar= true "/>
      </v-flex>
         </v-layout>
         
@@ -78,6 +82,7 @@ export default {
   components: { Popup },
   data() {
     return {
+      sanckbar: false,
       drawer: false,
       links: [
         { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
