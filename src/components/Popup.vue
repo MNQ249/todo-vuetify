@@ -1,9 +1,10 @@
 <template>
   <div class="text-center">
+    {{computedDateFormatted}}
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="red lighten-1" dark v-bind="attrs" v-on="on">
-          Add New Project</v-btn
+        Add New Project</v-btn
         >
       </template>
       <v-card>
@@ -27,33 +28,29 @@
           ></v-textarea>
           <!--datePicker-->
           <v-menu
-            v-model="due"
-            :close-on-content-click="false"
-            transition="scale-transition"
-            offset-y
-            max-width="290px"
-            min-width="290px"
+            
+            
           >
-            <template v-slot:activator="{ on, attrs }">
+            <template v-slot:activator="{ on }">
               <v-text-field
-                v-model="computedDateFormatted"
+                :value="due"
                 label="Due Date"
                 persistent-hint
                 prepend-icon="mdi-calendar"
-                v-bind="attrs"
+                
                 v-on="on"
                 :rules="inputRulesDate"
               ></v-text-field>
             </template>
             <v-date-picker
-              v-model="date"
+              v-model="due"
               no-title
-              @input="due = false"
+             
             ></v-date-picker>
           </v-menu>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="submit">
+            <v-btn color="primary" @click="submit" :loading="loading">
               Upload
             </v-btn>
           </v-card-actions>
@@ -64,10 +61,13 @@
 </template>
 
 <script>
+// import our database
+import db from '@/fb'
 export default {
   data(vm) {
     return {
-      dialog: true,
+      loading:false,
+      dialog: false,
       title: "",
       content: "",
       inputRulesTitle:[
@@ -88,7 +88,8 @@ export default {
   },
   computed: {
     computedDateFormatted() {
-      return this.formatDate(this.date);
+      //return this.formatDate(this.date);
+       return console.log(this.formatDate(this.date));
     },
   },
   watch: {
@@ -99,7 +100,20 @@ export default {
   methods: {
     submit() {
         if(this.$refs.form.validate()){
-            console.log(this.title, this.content);
+          this.loading=true;
+            // console.log(this.title, this.content);
+            const project = {
+              title: this.title,
+              content: this.content,
+              due: this.due,//this.formatDate(this.due, 'Do MMM YYYY'),
+              person: 'The Net Ninja',
+              status: 'ongoing'
+            }
+            db.collection('projects').add(project).then(()=>{
+              this.loading=false;
+              this.dialog=false;
+              console.log(' grate ...add to db');
+            }) // syn and take time to do it 
         }
       
     },

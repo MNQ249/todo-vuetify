@@ -47,8 +47,8 @@
      <v-flex class="mt-4 mb-3">
        <Popup />
      </v-flex>
-
         </v-layout>
+        
       <v-list>
         <v-list-item
           v-for="link in links"

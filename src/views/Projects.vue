@@ -4,7 +4,7 @@
 
     <v-container  class="my-5">
    <v-expansion-panels>
-      <v-expansion-panel v-for="project in myProjects" :key="project.title" class="light-green    lighten-1">
+      <v-expansion-panel v-for="project in myProjects" :key="project.title" class="light-green  lighten-1">
         <v-expansion-panel-header class="font-weight-bold white--text">  
           {{ project.title }}
           <v-expansion-panel-content>
@@ -18,7 +18,6 @@
         </v-expansion-panel-header>
       </v-expansion-panel>
     </v-expansion-panels>
-
     </v-container>
   </div>
 </template>
