@@ -35,7 +35,7 @@
         <span>Sign Out</span>
         <v-icon>mdi-logout</v-icon>
       </v-btn>
-      <v-switch v-model="$vuetify.theme.dark" label="Dark Mode"></v-switch>
+      <v-switch v-model="$vuetify.theme.dark" label="Dark Mode"></v-switch> <!-- this is for dark mode!-->
     </v-app-bar>
 
     <v-navigation-drawer floating app v-model="drawer" class="indigo ">
@@ -63,11 +63,13 @@
           <v-list-item-action>
             <v-icon class="white--text">{{ link.icon }}</v-icon>
           </v-list-item-action>
-          <v-list-tile-main>
-            <v-list-tile-title class="white--text">{{
+          <v-list-item-title >
+            <v-list-item-subtitle class="white--text">
+              {{
               link.text
-            }}</v-list-tile-title>
-          </v-list-tile-main>
+            }}
+            </v-list-item-subtitle>
+          </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

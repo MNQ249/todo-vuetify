@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    {{computedDateFormatted}}
+    {{ computedDateFormatted }}
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="red lighten-1" dark v-bind="attrs" v-on="on">
@@ -33,7 +33,7 @@
           >
             <template v-slot:activator="{ on }">
               <v-text-field
-                :value="due"
+                :value="dateFormatted"
                 label="Due Date"
                 persistent-hint
                 prepend-icon="mdi-calendar"
@@ -43,7 +43,7 @@
               ></v-text-field>
             </template>
             <v-date-picker
-              v-model="due"
+              v-model="date"
               no-title
              
             ></v-date-picker>
@@ -105,7 +105,7 @@ export default {
             const project = {
               title: this.title,
               content: this.content,
-              due: this.due,//this.formatDate(this.due, 'Do MMM YYYY'),
+              due: this.date,//this.formatDate(this.due, 'Do MMM YYYY'),
               person: 'The Net Ninja',
               status: 'ongoing'
             }

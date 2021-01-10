@@ -45,7 +45,7 @@
 
       <v-flex xs6 sm4 md2>
         <div class="captiion grey--text">Due by</div>
-        <div>{{ project.due}}</div>
+        <div>{{ project.due }}</div>
       </v-flex>
 
       <v-flex xs6 sm4 md2>
@@ -106,7 +106,7 @@ methods:{
 
 <style>
  .project.complete {
-   border-left: 4px solid #3cd1c2
+   border-left: 4px solid #21C73D
  }
 
  .project.ongoing{
@@ -118,7 +118,7 @@ methods:{
  }
 
 .v-chip.complete{
-  background: #3cd1c2 !important;
+  background: #21C73D !important;
 }
 .v-chip.ongoing{
   background: #ffaa2c !important;
